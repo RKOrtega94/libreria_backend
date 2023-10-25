@@ -14,6 +14,9 @@ class Usuario extends Model
     protected $primaryKey = "USU_CODIGO";
     protected $keyType = "string";
 
+    // Disable timestamps
+    public $timestamps = false;
+
     protected $fillable = [
         "USU_CI",
         "USU_APELLIDOS",

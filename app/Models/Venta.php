@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Venta extends Model
 {
@@ -12,6 +13,9 @@ class Venta extends Model
     protected $table = "VENTA";
     protected $primaryKey = "VEN_CODIGO";
     protected $keyType = "string";
+
+    // Disable timestamps
+    public $timestamps = false;
 
     protected $fillable = [
         "VEN_CODIGO" /* PK */,
@@ -42,4 +46,9 @@ class Venta extends Model
         "VEN_FECH_REMISION",
         "SUCURSAL",
     ];
+
+    public function tipoVenta(): BelongsTo
+    {
+        return $this->belongsTo(TipoVenta::class, "TIP_VEN_CODIGO", "TIP_VEN_CODIGO");
+    }
 }

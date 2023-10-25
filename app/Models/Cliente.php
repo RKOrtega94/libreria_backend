@@ -13,6 +13,9 @@ class Cliente extends Model
     protected $primaryKey = "CLI_CI";
     protected $keyType = "string";
 
+    // Disable timestamps
+    public $timestamps = false;
+
     protected $fillable = [
         "CLI_CI" /* PK */,
         "CLI_APELLIDOS",

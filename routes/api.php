@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\TipoVentaController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
@@ -45,3 +46,8 @@ Route::controller(VentaController::class)->group(function () {
 |
 | Rutas para el recurso TipoVenta
 */
+Route::controller(TipoVentaController::class)->group(function () {
+    Route::get("/tipo-ventas", [TipoVentaController::class, "index"])->name("tipo-ventas.index");
+    Route::post("/tipo-ventas", [TipoVentaController::class, "create"])->name("tipo-ventas.create");
+});
+
