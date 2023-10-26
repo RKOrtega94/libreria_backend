@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\OrdenTrabajoController;
 use App\Http\Controllers\PaisController;
 use App\Http\Controllers\ProductoController;
@@ -88,4 +89,15 @@ Route::controller(OrdenTrabajoController::class)->group(function () {
 */
 Route::controller(ProductoController::class)->group(function () {
     Route::get("/productos", [ProductoController::class, "index"])->name("productos.index");
+});
+
+/*
+|--------------------------------------------------------------------------
+| INSTITUCION
+|--------------------------------------------------------------------------
+|
+| Rutas para el recurso Institucion
+*/
+Route::controller(InstitucionController::class)->group(function () {
+    Route::get("/instituciones", [InstitucionController::class, "index"])->name("instituciones.index");
 });
