@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\OrdenTrabajoController;
+use App\Http\Controllers\PaisController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\TipoVentaController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VentaController;
@@ -51,3 +54,38 @@ Route::controller(TipoVentaController::class)->group(function () {
     Route::post("/tipo-ventas", [TipoVentaController::class, "create"])->name("tipo-ventas.create");
 });
 
+/*
+|--------------------------------------------------------------------------
+| PAÍSES
+|--------------------------------------------------------------------------
+|
+| Rutas para el recurso País
+*/
+Route::controller(PaisController::class)->group(function () {
+    Route::get("/paises", [PaisController::class, "index"])->name("paises.index");
+    Route::post("/paises", [PaisController::class, "create"])->name("paises.create");
+    Route::put("/paises/{id}", [PaisController::class, "update"])->name("paises.update");
+    Route::delete("/paises/{id}", [PaisController::class, "delete"])->name("paises.delete");
+});
+
+/*
+|--------------------------------------------------------------------------
+| ORDENES DE TRABAJO
+|--------------------------------------------------------------------------
+|
+| Rutas para el recurso OrdenTrabajo
+*/
+Route::controller(OrdenTrabajoController::class)->group(function () {
+    Route::get("/ordenes-trabajo", [OrdenTrabajoController::class, "index"])->name("ordenes-trabajo.index");
+});
+
+/*
+|--------------------------------------------------------------------------
+| PRODUCTO
+|--------------------------------------------------------------------------
+|
+| Rutas para el recurso Producto
+*/
+Route::controller(ProductoController::class)->group(function () {
+    Route::get("/productos", [ProductoController::class, "index"])->name("productos.index");
+});

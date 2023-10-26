@@ -14,7 +14,6 @@ class Venta extends Model
     protected $primaryKey = "VEN_CODIGO";
     protected $keyType = "string";
 
-    // Disable timestamps
     public $timestamps = false;
 
     protected $fillable = [
