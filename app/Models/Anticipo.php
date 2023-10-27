@@ -11,7 +11,7 @@ class Anticipo extends Model
 
     protected $table = "ANTICIPO";
     protected $primaryKey = "ANT_CODIGO";
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $fillable = [
         "ANT_CODIGO" /* PK */,

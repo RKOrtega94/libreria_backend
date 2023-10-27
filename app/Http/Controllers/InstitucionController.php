@@ -18,7 +18,8 @@ class InstitucionController extends Controller
             $search = request()->query("search", null);
 
             $instituciones = Institucion::
-                when(
+                with(["tipoInstitucion", "ciudad", "ciclo"])
+                ->when(
                     $search,
                     function ($query, $search) {
                         return $query->where("INS_NOMBRE", "LIKE", "%{$search}%")

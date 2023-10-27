@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Ciclo extends Model
 {
     use HasFactory;
+
+    protected $table = "CICLO";
+    protected $primaryKey = "CIC_CODIGO";
+    public $timestamps = false;
+
+    protected $fillable = [
+        "CIC_CODIGO" /* PK */,
+        "CIC_NOMBRE",
+    ];
 }

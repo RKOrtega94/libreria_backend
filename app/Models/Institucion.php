@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Institucion extends Model
 {
@@ -30,4 +31,19 @@ class Institucion extends Model
         "INS_RUC",
         "INS_SECTOR",
     ];
+
+    public function tipoInstitucion(): BelongsTo
+    {
+        return $this->belongsTo(TipoInstitucion::class, "TIP_INS_CODIGO", "TIP_INS_CODIGO");
+    }
+
+    public function ciudad(): BelongsTo
+    {
+        return $this->belongsTo(Ciudad::class, "CIU_CODIGO", "CIU_CODIGO");
+    }
+
+    public function ciclo(): BelongsTo
+    {
+        return $this->belongsTo(Ciclo::class, "CIC_CODIGO", "CIC_CODIGO");
+    }
 }
